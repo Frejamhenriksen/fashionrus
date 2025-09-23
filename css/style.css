@@ -1,14 +1,21 @@
+/* Index siden - landing page - kategorierne */
 /* main */
 .welcome-text {
-    font-size: 1.5em;
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+}
+.welcome-text-h2 {
+    font-size: 20px;
     font-weight: normal;
     text-align: center;
-    color: #555;
+    color: #000000;
 }
+
 
 /* Kategorierne */
 
-.categories {
+.grid-container div {
     font-size: 1.8em;
     font-weight: bold;
     color: #333;
@@ -19,6 +26,13 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 50px;
+}
+
+.grid-container div {
+  display: grid;
+  grid-column: 1/-1;
+  font-size: 20px;
+
 }
 
 .card {
@@ -35,3 +49,45 @@
 }
 
 h2{padding: 50px;}
+
+/* Productlist.html */
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 50px;
+}
+
+main h1{ display: grid;
+  grid-column: 1/-1;
+  font-size: 30px;
+padding-left: 50px;}
+
+.card {
+    /* Fjern 'width' og 'box-shadow' herfra, hvis du ønsker det. 'grid' tager sig af bredden. */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        /* Ændrer til 2 kolonner på tablets */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        /* Ændrer til 1 kolonne på mobiltelefoner */
+        grid-template-columns: 1fr;
+    }
