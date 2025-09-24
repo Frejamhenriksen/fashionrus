@@ -36,27 +36,44 @@
 }
 
 .card {
-    background-color: #888;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 70px 10px;
     text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 18px;
 }
 
 .card:hover {
-    background-color: #666;
+    background-color: #bbbbbb;
+    color: #fff;
 }
 
-h2{padding: 50px;}
+@media (max-width: 768px) {
+    .grid-container {
+        /* Ændrer til 2 kolonner på tablets */
+        grid-template-columns: 1fr 1fr;
+    }
+    .sold-out-badge{
+    grid-template-columns: 1fr 1fr;}
+}
+
+@media (max-width: 480px) {
+    .grid-container{
+        /* Ændrer til 1 kolonne på mobiltelefoner */
+        grid-template-columns: 1fr;
+    }
+  
+  }
 
 /* Productlist.html */
 
 .card-grid{
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 50px;
+
 }
 
 main h1{ display: grid;
@@ -64,26 +81,78 @@ main h1{ display: grid;
   font-size: 30px;
 padding-left: 50px;}
 
-.card {
-    /* Fjern 'width' og 'box-shadow' herfra, hvis du ønsker det. 'grid' tager sig af bredden. */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-}
+
 .card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
-@media (max-width: 768px) {
+.card .category{
+  font-size: 15px;
+  color: #555;
+}
+
+.old-price{
+  font-size: 15px;
+  color: #000000;
+  text-decoration: line-through;
+  text-decoration-color: #ff0000;
+  
+}
+
+.card .read-more{
+  font-size: 15px;
+  color: #393f97;
+}
+
+
+.card h3{
+  font-size: 25px;
+  color: #555;
+}
+
+.card-img{
+  position: relative;
+}
+
+/* sold out badgets */
+
+.sold-out-badge {
+  position: absolute;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 20px;
+  padding:15px;
+  margin: 65px;
+  font-weight: bold;
+  top: 0px;
+}
+.sold-out img{
+  filter: grayscale(100%) blur(3px);
+}
+
+/* Discount badgets */
+
+.discount{
+  background-color: yellow;
+  color: #000000;
+  margin: 10px;
+  padding: 5px;
+  font-style: italic;
+}
+
+.new-price{
+  color: red;
+}
+
+
+@media (max-width: 1000px) {
     .card-grid {
         /* Ændrer til 2 kolonner på tablets */
         grid-template-columns: 1fr 1fr;
     }
+    .sold-out-badge{
+    grid-template-columns: 1fr 1fr;}
 }
 
 @media (max-width: 480px) {
@@ -91,3 +160,174 @@ padding-left: 50px;}
         /* Ændrer til 1 kolonne på mobiltelefoner */
         grid-template-columns: 1fr;
     }
+  
+  }
+
+  /* product.html */
+
+  /* Containeren med billede */
+  .container {
+    max-width: 10000px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-image-container {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.product-image {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Produktbeskrivelsen */
+
+.content-sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.product-info {
+    flex-basis: 55%;
+  }
+  .product-info h1{
+    font-size: 25px;
+    font-style: italic;
+    font-weight: lighter;
+    text-decoration: underline;
+  }
+.product-info h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.product-info p {
+    margin: 5px 0;
+}
+.product-info .first {
+    font-weight: bold;
+}
+
+.product-info p {
+    font-style: italic;
+}
+
+/* Nike logo */
+
+.nike-logo img {
+  width: 200px;
+}
+
+.nike-logo p {
+    margin: 0;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* Drop down menu for køb af størrelser */
+
+.buy-box {
+    flex-basis: 50%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+}
+.buy-box h3 {
+    font-size: 30px;
+    margin-top: 0;
+}
+.buy-box .category {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Vælg størrelse */
+.size-selector{
+    position: relative;
+   display: inline-block;
+   
+}
+
+.size-selector label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+.size-selector select {
+    width: 200px;
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 4px;
+    appearance: none;
+    background-size: 10px;
+    background-color: #fff;
+  border: none;
+    background-color: #f9f9f9; 
+  padding: 10px 5px;
+  border: 2px solid #1091fb;
+  border-radius: 5px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 40px;
+}
+
+/* Tilføj til kurv */
+
+.add-to-basket-btn {
+    width: 200px;
+    background-color: #d3d3d3;
+    border: none;
+    padding: 10px 5px;
+    border: 2px solid black;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    
+}
+
+.add-to-basket-btn:hover {
+     background-color: #bbbbbb;
+    color: #fff;
+}
+
+/* Navigationsbar */
+
+.nav-bar ul {
+  margin-top: -50px;
+}
+
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-bar a {
+  color: #555; 
+}
+
+.nav-bar a:hover {
+  color: #000000; 
+  font-weight: bold;
+}
+
+/* Tilføjer det lille >-tegn */
+.nav-bar li:not(:last-child)::after {
+  content: '>';
+  margin-left: 8px; 
+  color: #999; 
+}
+
+.nav-list li:last-child {
+  color: #000; 
+}
