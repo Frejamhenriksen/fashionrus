@@ -186,7 +186,7 @@ padding-left: 50px;}
 
 /* Produktbeskrivelsen */
 
-.content-sections {
+.contentSections {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
