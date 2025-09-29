@@ -15,20 +15,20 @@
 
 /* Kategorierne */
 
-.grid-container div {
+.categorylist div {
     font-size: 1.8em;
     font-weight: bold;
     color: #333;
 }
 
-.grid-container {
+.categorylist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 50px;
 }
 
-.grid-container div {
+.categorylist div {
   display: grid;
   grid-column: 1/-1;
   font-size: 20px;
@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 768px) {
-    .grid-container {
+    .categorylist {
         /* Ændrer til 2 kolonner på tablets */
         grid-template-columns: 1fr 1fr;
     }
@@ -58,7 +58,7 @@
 }
 
 @media (max-width: 480px) {
-    .grid-container{
+    .categorylist{
         /* Ændrer til 1 kolonne på mobiltelefoner */
         grid-template-columns: 1fr;
     }
@@ -106,15 +106,20 @@ padding-left: 50px;}
 
 /* sold out badgets */
 .card-img{
-  position: relative;
+  display: block;
+  height: 800px;
+  overflow: hidden;
 }
 .sold-out-badge {
-  position: absolute;
   background-color: #ff0000;
   color: #fff;
-  font-size: 20px;
-  padding:15px;
+  font-size: 15px;
+  padding:10px;
   font-weight: bold;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
+
 }
 .soldout img{
   filter: grayscale(100%) blur(2px);
@@ -136,7 +141,7 @@ padding-left: 50px;}
 
 
 @media (max-width: 1000px) {
-    .card-grid {
+    #productListContainer {
         /* Ændrer til 2 kolonner på tablets */
         grid-template-columns: 1fr 1fr;
     }
@@ -145,7 +150,7 @@ padding-left: 50px;}
 }
 
 @media (max-width: 480px) {
-    .card-grid {
+    #productListContainer {
         /* Ændrer til 1 kolonne på mobiltelefoner */
         grid-template-columns: 1fr;
     }

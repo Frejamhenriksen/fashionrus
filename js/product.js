@@ -1,22 +1,26 @@
+const productContainer = document.querySelector("#productContainer");
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-const productContainer = document.querySelector("#productContainer");
 
 fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
   .then((response) => response.json())
-  .then(showProduct);
+  .then((data) => showProducts(data));
 
-function showProduct(product) {
-  productContainer.innerHTML = `
+function showProducts(products) {
+  console.log(products);
+  products.forEach((product) => {
+    console.log(product);
+    productListContainer.innerHTML += `
         <div class="container">
     <div class="product-image-container">
-        <img class="product-image" src="img/1164-img.webp" alt="Sahara Team India Fanwear Round Neck Jersey">
+        <img class="product-image" src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="Product picture">
     </div>
         <div class="product-info">
             <h1>DKK 1595</h1>
             <h2>Product Information</h2>
-            <p class="first">Model name<br></p><p>Sahara Team India Fanwear Round Neck Jersey</p>
-            <p class="first">Color<br></p><p>Blue</p>
+            <p class="productName">${product.productdisplayname}</p>
+            <p class="articleType">Color<br></p><p>Blue</p>
             <p class="first">Inventory number<br></p><p>1163</p>
 
             <div class="nike-logo">
@@ -43,4 +47,4 @@ function showProduct(product) {
                   <button class="add-to-basket-btn">Add to basket</button>
             </div>
         `;
-}
+  })}
