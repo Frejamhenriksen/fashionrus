@@ -7,11 +7,9 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${id}`)
   .then((response) => response.json())
   .then((data) => showProducts(data));
 
-function showProducts(products) {
-  console.log(products);
-  products.forEach((product) => {
-    console.log(product);
-    productListContainer.innerHTML += `
+function showProducts(product) {
+  console.log(product);
+  productContainer.innerHTML += `
         <div class="container">
     <div class="product-image-container">
         <img class="product-image" src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="Product picture">
@@ -47,4 +45,4 @@ function showProducts(products) {
                   <button class="add-to-basket-btn">Add to basket</button>
             </div>
         `;
-  })}
+}

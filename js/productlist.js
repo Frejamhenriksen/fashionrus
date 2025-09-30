@@ -24,7 +24,7 @@ ${element.soldout ? "<p class='sold-out-badge'>Sold out</p><div class='sold-out-
 
             <p class=${element.discount && "old-price"}>DKK<span>${element.price}</span>,-</p>
             ${element.discount ? `<p class='discount'>${element.discount}%</p><p class='new-price'>DKK <span>${Math.round(element.price - (element.price * element.discount) / 100)},-</p>` : ""}
-            <a href="product.html" class="read-more">Read More</a>
+            <a href="product.html?id=${element.id}" class="read-more">Read More</a>
           </div>
         </div>
             `;
