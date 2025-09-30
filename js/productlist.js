@@ -5,7 +5,7 @@ console.log(category);
 const productListContainer = document.querySelector("#productListContainer");
 const header = (document.querySelector("h1").textContent = category);
 
-fetch(`https://kea-alt-del.dk/t7/api/products/?limit=100&category=${category}`)
+fetch(`https://kea-alt-del.dk/t7/api/products/?limit=100&start=30category=${category}`)
   .then((response) => response.json())
   .then((data) => showProducts(data));
 
