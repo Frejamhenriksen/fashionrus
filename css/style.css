@@ -67,24 +67,39 @@
 
 /* Productlist.html */
 
+button{
+    width: 100px;
+    background-color: #d3d3d3;
+    border: none;
+    padding: 10px 5px;
+    border: 2px solid black;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
 #productListContainer{
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  padding: 50px;
-
+  margin-bottom: 0px;
 }
+
+
+.card img {
+  width: 100%;
+}
+
 
 main h1{ display: grid;
   grid-column: 1/-1;
   font-size: 30px;
 padding-left: 50px;}
 
-
-.card img {
-  width: 100%;
-}
 
 .card .category{
   font-size: 15px;
@@ -140,16 +155,21 @@ padding-left: 50px;}
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     #productListContainer {
-        /* Ændrer til 2 kolonner på tablets */
-        grid-template-columns: 1fr 1fr;
+        /* Ændrer til 3 kolonner på tablets */
+        grid-template-columns: 1fr 1fr 1fr;
     }
-    .sold-out-badge{
-    grid-template-columns: 1fr 1fr;}
 }
 
-@media (max-width: 480px) {
+@media (max-width: 950px) {
+    #productListContainer {
+        /* Ændrer til 3 kolonner på tablets */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
     #productListContainer {
         /* Ændrer til 1 kolonne på mobiltelefoner */
         grid-template-columns: 1fr;

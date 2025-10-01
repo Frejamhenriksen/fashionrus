@@ -18,19 +18,14 @@ function showProducts(product) {
             <h1>DKK 1595</h1>
             <h2>Product Information</h2>
             <p class="productName">${product.productdisplayname}</p>
-            <p class="articleType">Color<br></p><p>Blue</p>
+            <p class="articleType">${product.articletype}</p>
             <p class="first">Inventory number<br></p><p>1163</p>
-
-            <div class="nike-logo">
-                <img src="img/nike.png" alt="nike logo">
-                <p>Nike, creating experiences for today's athlete</p>
-            </div>
         </div>
 
         <!-- Drop down menu for køb af størrelser -->
             <div class="buy-box">
             <h3>Sahara Team India Fanwear Round Neck Jersey</h3>
-            <p class="category">Nike | Tshirts</p>
+            <p class="category">${product.articletype} | ${product.brandname}</p>
 
             <div class="size-selector">
             <label for="size-dropdown">Choose a size</label>
