@@ -2,15 +2,15 @@
 
 const params = new URLSearchParams(window.location.search);
 const category = params.get("category");
-console.log(category);
+// console.log(category);
 
 const productListContainer = document.querySelector("#productListContainer");
 const header = (document.querySelector("h1").textContent = category);
 
-document.querySelectorAll("#filters button").forEach((knap) => knap.addEventListener("click", showFiltered));
+document.querySelectorAll("#filters").forEach((knap) => knap.addEventListener("click", showFiltered));
 
 function showFiltered(){
-  console.log(this.dataset.gender);
+  // console.log(this.dataset.gender);
   const gender = this.dataset.gender;
   if (gender == "All"){
     showProducts(allData);

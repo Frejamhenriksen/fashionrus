@@ -69,8 +69,7 @@
 
 button{
     width: 100px;
-    background-color: #d3d3d3;
-    border: none;
+    background-color: #ece9e9;
     padding: 10px 5px;
     border: 2px solid black;
     font-size: 1em;
@@ -79,6 +78,27 @@ button{
     cursor: pointer;
     border-radius: 5px;
     margin-top: 20px;
+}
+
+button:hover{
+    background-color: #a4a4a4;
+}
+
+#sorting button{
+      width: 200px;
+    background-color: #ece9e9;
+    padding: 10px 5px;
+    border: 2px solid black;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#sorting button:hover{
+  background-color: #a4a4a4;
 }
 
 #productListContainer{
