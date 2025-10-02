@@ -1,40 +1,52 @@
-
-
 const params = new URLSearchParams(window.location.search);
 const category = params.get("category");
 // console.log(category);
 
 const productListContainer = document.querySelector("#productListContainer");
 const header = (document.querySelector("h1").textContent = category);
+let allData, currentDataSet;
+// Filtrering af køn
 
-document.querySelectorAll("#filters").forEach((knap) => knap.addEventListener("click", showFiltered));
+document.querySelector("#filters").addEventListener("click", showFiltered);
 
-function showFiltered(){
-  // console.log(this.dataset.gender);
-  const gender = this.dataset.gender;
-  if (gender == "All"){
-    showProducts(allData);
-  } else{
-      const udsnit = allData.filter(product => product.gender == gender);
-    // fraction = allData.filter((product) => product.gender === filter);
-    //   showProducts(fraction);
+function showFiltered(event) {
+  const gender = event.target.dataset.gender;
+  if (gender == "All") {
+    currentDataset = allData;
+    console.log("all");
+  } else {
+    const udsnit = allData.filter((product) => product.gender == gender);
+    currentDataSet = udsnit;
+    console.log(udsnit, currentDataSet);
   }
+  showProducts(currentDataSet);
 }
 
+// Sotering af pris
+document.querySelector("#sorting").addEventListener("click", sortItems);
 
-let allData;
-fetch(`https://kea-alt-del.dk/t7/api/products/?limit=100&start=30category=${category}`)
+function sortItems(event) {
+  console.log(event.target);
+  const direction = event.target.dataset.direction;
+  if (direction == "lohi") {
+    currentDataSet.sort((firstItem, secondItem) => firstItem.price - secondItem.price);
+  } else {
+    currentDataSet.sort((firstItem, secondItem) => secondItem.price - firstItem.price);
+  }
+  showProducts(currentDataSet);
+}
+
+fetch(`https://kea-alt-del.dk/t7/api/products/?limit=20&start=20category=${category}`)
   .then((response) => response.json())
-  .then((data) => showProducts(data))
   .then((json) => {
-    allData = json;
-    showProducts(allData);
-    });
+    allData = currentDataSet = json;
+    showProducts(currentDataSet);
+  });
 
 function showProducts(products) {
   console.log(products);
+  productListContainer.innerHTML = "";
   products.forEach((element) => {
-    console.log(element);
     productListContainer.innerHTML += `<div class="card"><div class="card-img">
             <a href="product.html"><img src="https://kea-alt-del.dk/t7/images/webp/640/${element.id}.webp" alt="product image" /></a>
 ${element.soldout ? "<p class='sold-out-badge'>Sold out</p><div class='sold-out-overlay'></div>" : ""}
