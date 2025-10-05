@@ -15,20 +15,20 @@
 
 /* Kategorierne */
 
-.grid-container div {
+.categorylist div {
     font-size: 1.8em;
     font-weight: bold;
     color: #333;
 }
 
-.grid-container {
+.categorylist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 50px;
 }
 
-.grid-container div {
+.categorylist div {
   display: grid;
   grid-column: 1/-1;
   font-size: 20px;
@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 768px) {
-    .grid-container {
+    .categorylist {
         /* Ændrer til 2 kolonner på tablets */
         grid-template-columns: 1fr 1fr;
     }
@@ -58,7 +58,7 @@
 }
 
 @media (max-width: 480px) {
-    .grid-container{
+    .categorylist{
         /* Ændrer til 1 kolonne på mobiltelefoner */
         grid-template-columns: 1fr;
     }
@@ -67,25 +67,59 @@
 
 /* Productlist.html */
 
-.card-grid{
+button{
+    width: 100px;
+    background-color: #ece9e9;
+    padding: 10px 5px;
+    border: 2px solid black;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover{
+    background-color: #a4a4a4;
+}
+
+#sorting button{
+      width: 200px;
+    background-color: #ece9e9;
+    padding: 10px 5px;
+    border: 2px solid black;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#sorting button:hover{
+  background-color: #a4a4a4;
+}
+
+#productListContainer{
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  padding: 50px;
-
+  margin-bottom: 0px;
 }
+
+
+.card img {
+  width: 100%;
+}
+
 
 main h1{ display: grid;
   grid-column: 1/-1;
   font-size: 30px;
 padding-left: 50px;}
 
-
-.card img {
-  width: 100%;
-  height: 100%;
-}
 
 .card .category{
   font-size: 15px;
@@ -105,30 +139,25 @@ padding-left: 50px;}
   color: #393f97;
 }
 
-
-.card h3{
-  font-size: 25px;
-  color: #555;
-}
-
-.card-img{
-  position: relative;
-}
-
 /* sold out badgets */
-
+.card-img{
+  display: block;
+  height: 800px;
+  overflow: hidden;
+}
 .sold-out-badge {
-  position: absolute;
   background-color: #ff0000;
   color: #fff;
-  font-size: 20px;
-  padding:15px;
-  margin: 65px;
+  font-size: 15px;
+  padding:10px;
   font-weight: bold;
-  top: 0px;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
+
 }
-.sold-out img{
-  filter: grayscale(100%) blur(3px);
+.soldout img{
+  filter: grayscale(100%) blur(2px);
 }
 
 /* Discount badgets */
@@ -146,17 +175,22 @@ padding-left: 50px;}
 }
 
 
-@media (max-width: 1000px) {
-    .card-grid {
-        /* Ændrer til 2 kolonner på tablets */
-        grid-template-columns: 1fr 1fr;
+@media (max-width: 1200px) {
+    #productListContainer {
+        /* Ændrer til 3 kolonner på tablets */
+        grid-template-columns: 1fr 1fr 1fr;
     }
-    .sold-out-badge{
-    grid-template-columns: 1fr 1fr;}
 }
 
-@media (max-width: 480px) {
-    .card-grid {
+@media (max-width: 950px) {
+    #productListContainer {
+        /* Ændrer til 3 kolonner på tablets */
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    #productListContainer {
         /* Ændrer til 1 kolonne på mobiltelefoner */
         grid-template-columns: 1fr;
     }
@@ -186,7 +220,7 @@ padding-left: 50px;}
 
 /* Produktbeskrivelsen */
 
-.content-sections {
+.contentSections {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
